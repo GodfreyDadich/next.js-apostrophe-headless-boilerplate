@@ -21,7 +21,6 @@ app.prepare().then(() => {
   }
 
   server.get('/with-data/:slug', (req, res) => {
-    console.log('hih')
     return app.render(req, res, '/sample-with-data', Object.assign({slug: req.params.slug}, req.query))
   })
 

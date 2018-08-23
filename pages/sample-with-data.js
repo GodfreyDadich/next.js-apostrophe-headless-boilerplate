@@ -11,18 +11,25 @@ const SampleWithData = ({ data }) =>
       */}
       <title>Test Title from the Sample With Data Page</title>
     </Head>
-    {data}
+    <ul>
+      {
+        data.map((item, index) => <li key={`item${index}`}>
+          <h3><a href={item.link} target='_blank'>{item.title}</a></h3>
+          <span>View Count: {item.view_count}</span>
+        </li>)
+      }
+    </ul>
     <style jsx>{`
     
       //styles go here
     `}</style>
   </PageTemplate>
 
-// SampleWithData.getInitialProps = async () => {
-  // const toFetch = getAPIUrl('sample')
-  // const response = await fetch(toFetch)
-  // const data = await response.json()
-  // return { data: data.results }
-// }
+SampleWithData.getInitialProps = async () => {
+  const toFetch = `https://api.stackexchange.com/2.2/search?order=desc&sort=activity&intitle=perl&site=stackoverflow` //getAPIUrl('sample')
+  const response = await fetch(toFetch)
+  const data = await response.json()
+  return { data: data.items }
+}
 
 export default SampleWithData
