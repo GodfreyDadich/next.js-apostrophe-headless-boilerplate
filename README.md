@@ -20,7 +20,7 @@ npm run build
 ```
 
 ```
-deploy comman
+deploy command
 ```
 
 ### Deploy to Production
