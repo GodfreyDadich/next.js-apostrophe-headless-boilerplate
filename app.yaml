@@ -1,0 +1,5 @@
+env: flex
+runtime: nodejs
+
+env_variables:
+  MY_ENV: "Blaines House"

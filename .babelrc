@@ -1,0 +1,28 @@
+{
+    "presets": [
+      [
+        "next/babel",
+        {
+          "styled-jsx": {
+            "optimizeForSpeed": true ,
+            "plugins": [
+                ["styled-jsx-plugin-sass", {
+                    "sassOptions": {
+                      "includePaths": ["./styles/mixins.scss"]
+                    }
+                  }
+                ]
+            ]
+          }
+        }
+      ]
+    ],
+    "env": {
+      "development": {
+        "plugins": ["inline-dotenv"]
+      },
+      "production": {
+        "plugins": ["transform-inline-environment-variables"]
+      }
+    }    
+}
