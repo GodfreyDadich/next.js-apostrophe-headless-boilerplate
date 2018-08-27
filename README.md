@@ -55,7 +55,8 @@ function buildRequestVars (paramString) {
     rvars += rvars.length > 0 ? `&${paramString}` : `?${paramString}`
   }
   return rvars
-}```
+}
+```
 
 `API_DOMAIN` is set in the `utils/constants.js` and is to be the domain at which you have deployed your Apostrophe-Headless instance. The `urlbase` variable adds the rest of the base paths currently used by a standard install of Apostrophe-Headless. The `path` variable is used as the item type. More documentation on how 
 Apostrophe-Headless handles requests can be found [here](https://github.com/apostrophecms/apostrophe-headless)
