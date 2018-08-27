@@ -7,6 +7,18 @@
 
 //----- Grid System
 $grid-spacing:3%;
+$one-col: (100% / 12) - ($grid-spacing * 11 / 12);
+$two-col: (100% / 6) - ($grid-spacing * 10 / 12);
+$three-col: (100% / 4) - ($grid-spacing * 9 / 12);
+$four-col: (100% / 3) - ($grid-spacing * 8 / 12);
+$five-col: (100% / 2.4) - ($grid-spacing * 7 / 12);
+$six-col: (100% / 2) - ($grid-spacing * 6 / 12);
+$seven-col: (100% / 1.714285714285714) - ($grid-spacing * 5 / 12);
+$eight-col: (100% / 1.5) - ($grid-spacing * 4 / 12);
+$nine-col: (100% / 1.333333333333333) - ($grid-spacing * 3 / 12);
+$ten-col: (100% / 1.2) - ($grid-spacing * 2 / 12);
+$eleven-col: (100% / 1.090909090909091) - ($grid-spacing * 1 / 12);
+$full-width: 100%; 
 
 .row {
 	@extend %clearfix;
@@ -29,15 +41,15 @@ $grid-spacing:3%;
 }
 
 //----- Columns (Automatic)
-.col-1 { width:(100% / 12) - ($grid-spacing * 11 / 12); }
-.col-2 { width:(100% / 6) - ($grid-spacing * 10 / 12); }
-.col-3 { width:(100% / 4) - ($grid-spacing * 9 / 12); }
-.col-4 { width:(100% / 3) - ($grid-spacing * 8 / 12); }
-.col-5 { width:(100% / 2.4) - ($grid-spacing * 7 / 12); }
-.col-6 { width:(100% / 2) - ($grid-spacing * 6 / 12); }
-.col-7 { width:(100% / 1.714285714285714) - ($grid-spacing * 5 / 12); }
-.col-8 { width:(100% / 1.5) - ($grid-spacing * 4 / 12); }
-.col-9 { width:(100% / 1.333333333333333) - ($grid-spacing * 3 / 12); }
-.col-10 { width:(100% / 1.2) - ($grid-spacing * 2 / 12); }
-.col-11 { width:(100% / 1.090909090909091) - ($grid-spacing * 1 / 12); }
-.col-12 { width:100%; }
+.col-1 { width: $one-col}
+.col-2 { width: $two-col }
+.col-3 { width: $three-col }
+.col-4 { width: $four-col }
+.col-5 { width: $five-col }
+.col-6 { width: $six-col }
+.col-7 { width: $seven-col }
+.col-8 { width: $eight-col }
+.col-9 { width: $nine-col }
+.col-10 { width: $ten-col }
+.col-11 { width: $eleven-col }
+.col-12 { width: $full-width; }

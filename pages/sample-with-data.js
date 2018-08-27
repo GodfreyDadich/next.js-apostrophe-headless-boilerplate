@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import Head from 'next/head'
-import { getAPIUrl } from '../lib/utils/dataHelpers'
+// import { getAPIUrl } from '../lib/utils/dataHelpers'
 import PageTemplate from '../lib/components/PageTemplate'
 
 const SampleWithData = ({ data }) =>
