@@ -42,7 +42,8 @@ If you aren't familliar with React.js and/or it's component lifecycle, I would s
 That said, Next.js kind of handles a lot of the hardships with code splitting and request handling. 
 I have created a couple of helper functions to aid in the requests that will be made to the Apostrophe-Headless instance.
 
-```function getAPIUrl (path, paramString) {
+```
+function getAPIUrl (path, paramString) {
   const requestVars = buildRequestVars(paramString)
   const urlBase = `${API_DOMAIN}/api/v1/`
   return `${urlBase}${path}${requestVars}`
