@@ -37,7 +37,7 @@ deploy command
 This particular setup makes server-side request and renders the components there. Currently there are only GET request, but I have plans to add PUT and authentication requests in the coming months.
 
 #### Where does the data request happen?
-Next.js utilizes a function within Page components called `getInitialProps`. An example of that is in the `pages/sample-with-data.js' file. More documentation on the ins and outs of how that works is here on the Next.js website: [Next.js Documentation](https://nextjs.org/docs/#fetching-data-and-component-lifecycle) 
+Next.js utilizes a function within Page components called `getInitialProps`. An example of that is in the `pages/sample-with-data.js` file. More documentation on the ins and outs of how that works is here on the Next.js website: [Next.js Documentation](https://nextjs.org/docs/#fetching-data-and-component-lifecycle) 
 If you aren't familliar with React.js and/or it's component lifecycle, I would suggest brushing up on that before you dive into the wonderful perks of Next.js
 That said, Next.js kind of handles a lot of the hardships with code splitting and request handling. 
 I have created a couple of helper functions to aid in the requests that will be made to the Apostrophe-Headless instance in `utils/dataHelpers.js` .
