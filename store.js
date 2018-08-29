@@ -3,29 +3,19 @@ import { action, observable } from 'mobx'
 let store = null
 
 class Store {
-  @observable lastUpdate = 0
-  @observable light = false
+  @observable navItems = []
 
-  constructor (isServer, lastUpdate) {
-    this.lastUpdate = lastUpdate
+  constructor (isServer) {
+    // this.lastUpdate = lastUpdate
   }
-
-  @action start = () => {
-    this.timer = setInterval(() => {
-      this.lastUpdate = Date.now()
-      this.light = true
-    }, 1000)
-  }
-
-  stop = () => clearInterval(this.timer)
 }
 
-export function initializeStore (isServer, lastUpdate = Date.now()) {
+export function initializeStore (isServer) {
   if (isServer) {
-    return new Store(isServer, lastUpdate)
+    return new Store(isServer)
   } else {
     if (store === null) {
-      store = new Store(isServer, lastUpdate)
+      store = new Store(isServer)
     }
     return store
   }
