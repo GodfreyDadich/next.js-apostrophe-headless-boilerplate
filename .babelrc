@@ -24,5 +24,9 @@
       "production": {
         "plugins": ["transform-inline-environment-variables"]
       }
-    }    
+    },
+    "plugins": [
+      "transform-decorators-legacy",
+      "transform-class-properties"
+    ]
 }

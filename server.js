@@ -5,6 +5,7 @@ const dev = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 's
 const { parse } = require('url')
 const { join } = require('path')
 const app = next({ dev })
+const mobxReact = require('mobx-react')
 const handle = app.getRequestHandler()
 const compression = require('compression')
 
@@ -13,6 +14,8 @@ const rootStaticFiles = [
   '/sitemap.xml',
   '/favicon.ico'
 ]
+
+mobxReact.useStaticRendering(true)
 
 app.prepare().then(() => {
   const server = express()
