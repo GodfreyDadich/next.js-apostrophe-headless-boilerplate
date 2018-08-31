@@ -1,9 +1,17 @@
-import { action, observable } from 'mobx'
+import { observable } from 'mobx'
 
 let store = null
 
 class Store {
-  @observable navItems = []
+  @observable navItems = [
+    {
+      'title': 'About',
+      'slug': '/about',
+      '_id': 'cjk02thnh001lvfaw6xqs9heh',
+      '_url': '/about',
+      '_children': []
+    }
+  ]
 
   constructor (isServer) {
     // this.lastUpdate = lastUpdate

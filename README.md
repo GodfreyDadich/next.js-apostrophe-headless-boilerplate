@@ -68,5 +68,6 @@ I do have a branch of Apostrophe-Headless that will accept `slug` as a query par
 ### Coming soon
 - Abstracted version of the Apostrophe CMS deployment ( utilizing Apostrophe Headless ) used for this project
 - PUT and AUTH requests handlers that further interact with Apostrophe Headless
+- State managment with MOBX
 - Common data request. I will be implementing an initial request on the application intended to get data for a content controlled navigation ( header and footer data ). The request will happen only once per application load.
 - Abstract hosting platform away from just Google Cloud

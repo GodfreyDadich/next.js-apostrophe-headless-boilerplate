@@ -35,7 +35,7 @@ app.prepare().then(() => {
   server.get('/*', (req, res) => {
     const parsedUrl = parse(req.url, true)
 
-    const filePath = false ? 'static/prod' : 'static' /* detect env here */
+    const filePath = false ? '../static/prod' : '../static' /* detect env here */
     if (rootStaticFiles.indexOf(parsedUrl.pathname) > -1) {
       const path = join(__dirname, filePath, parsedUrl.pathname)
       app.serveStatic(req, res, path)
