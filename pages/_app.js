@@ -5,7 +5,8 @@ import { Provider } from 'mobx-react'
 import fetch from 'isomorphic-fetch'
 import env from '../lib/utils/env'
 
-const { API_DOMAIN } = env
+const { APP_DOMAIN, APP_DOMAIN_DEV, NODE_ENV } = env
+const requestDomain = (NODE_ENV === 'production') ? APP_DOMAIN : APP_DOMAIN_DEV
 let staticStore = {}
 
 class MyApp extends App {
@@ -21,7 +22,7 @@ class MyApp extends App {
 
     // move fetch out of file
     if (typeof staticStore.navData === 'undefined') {
-      const toFetch = `http://localhost:3001/api/micro/nav`
+      const toFetch = `${requestDomain}api/micro/nav`
       console.log(toFetch)
       const response = await fetch(toFetch)
       const data = await response.json()

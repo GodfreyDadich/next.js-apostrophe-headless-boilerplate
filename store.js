@@ -1,13 +1,9 @@
-import { action, observable } from 'mobx'
+import { observable } from 'mobx'
 
 let store = null
 
 class Store {
   @observable navData
-
-  constructor (isServer) {
-    // this.lastUpdate = lastUpdate
-  }
 }
 
 export function initializeStore (isServer) {
