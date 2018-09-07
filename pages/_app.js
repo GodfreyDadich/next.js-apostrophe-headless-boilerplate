@@ -3,7 +3,9 @@ import React from 'react'
 import withMobxStore from '../lib/with-mobx-store'
 import { Provider } from 'mobx-react'
 import fetch from 'isomorphic-fetch'
+import env from '../lib/utils/env'
 
+const { API_DOMAIN } = env
 let staticStore = {}
 
 class MyApp extends App {
@@ -19,8 +21,8 @@ class MyApp extends App {
 
     // move fetch out of file
     if (typeof staticStore.navData === 'undefined') {
-      console.log('fetching nav data')
-      const toFetch = `http://localhost:3000/api/v1/apostrophe-pages?all=true&hideOrphans=true&apiKey=dc2c3c67-5e82-47a9-9829-d7ffd920050c` //getAPIUrl('sample')
+      const toFetch = `http://localhost:3001/api/micro/nav`
+      console.log(toFetch)
       const response = await fetch(toFetch)
       const data = await response.json()
       staticStore = Object.assign(staticStore, {navData: data._children})
