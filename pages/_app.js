@@ -20,7 +20,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    // move fetch out of file
+    /* This request 👇 is optional and can be removed if the nav data from Apostrophe isn't used in this application */
     if (typeof staticStore.navData === 'undefined') {
       const toFetch = `${requestDomain}api/micro/nav`
       console.log(toFetch)
