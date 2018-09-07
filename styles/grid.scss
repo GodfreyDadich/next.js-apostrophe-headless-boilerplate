@@ -54,3 +54,15 @@ $full-width: 100%;
 .col-10 { width: $ten-col }
 .col-11 { width: $eleven-col }
 .col-12 { width: $full-width; }
+
+.skip-1 { margin-left: $one-col + $grid-spacing }
+.skip-2 { margin-left: $two-col + $grid-spacing }
+.skip-3 { margin-left: $three-col + $grid-spacing }
+.skip-4 { margin-left: $four-col + $grid-spacing }
+.skip-5 { margin-left: $five-col + $grid-spacing }
+.skip-6 { margin-left: $six-col + $grid-spacing }
+.skip-7 { margin-left: $seven-col + $grid-spacing }
+.skip-8 { margin-left: $eight-col + $grid-spacing }
+.skip-9 { margin-left: $nine-col + $grid-spacing }
+.skip-10 { margin-left: $ten-col + $grid-spacing }
+.skip-11 { margin-left: $eleven-col + $grid-spacing }
