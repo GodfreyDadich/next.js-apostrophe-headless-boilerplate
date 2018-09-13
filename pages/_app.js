@@ -20,10 +20,10 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx)
     }
 
-    /* This request 👇 is optional and can be removed if the nav data from Apostrophe isn't used in this application */
+    /* This request 👇 is optional and can be removed 
+    if the nav data from Apostrophe isn't used in this application */
     if (typeof staticStore.navData === 'undefined') {
       const toFetch = `${requestDomain}api/micro/nav`
-      console.log(toFetch)
       const response = await fetch(toFetch)
       const data = await response.json()
       staticStore = Object.assign(staticStore, {navData: data._children})
@@ -35,10 +35,10 @@ class MyApp extends App {
   }
 
   render () {
-    const {Component, pageProps, staticStore} = this.props
+    const {Component, pageProps, staticStore, mobxStore} = this.props
     return (
       <Container>
-        <Provider staticStore={staticStore}>
+        <Provider staticStore={staticStore} store={mobxStore}>
           <Component {...pageProps} />
         </Provider>
       </Container>

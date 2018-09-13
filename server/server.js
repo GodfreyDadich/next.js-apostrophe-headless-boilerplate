@@ -57,7 +57,7 @@ app.prepare().then(() => {
 
 function handleAPIProxy (req, res, apiPath) {
   const navDataAPI = `${process.env.API_DOMAIN}${apiPath}&apiKey=${process.env.API_KEY}`
-  fetch(navDataAPI)
+  fetch(navDataAPI) // need to add error handling
     .then(response => response.json())
     .then(json => {
       res.setHeader('Content-Type', 'application/json')
