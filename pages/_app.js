@@ -33,7 +33,9 @@ class MyApp extends App {
 
     return { pageProps, staticStore }
   }
-
+  componentDidMount() {
+    console.log('test')
+  }
   render () {
     const {Component, pageProps, staticStore, mobxStore} = this.props
     return (

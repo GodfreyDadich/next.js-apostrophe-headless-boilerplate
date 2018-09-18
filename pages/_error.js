@@ -6,7 +6,8 @@ const SamplePage = () =>
   <PageTemplate classNames='home'>
     <Row>
       <Column columns='4' skip='4'>
-        <Link href='/with-data/tester' prefetch><a>Click for a sample with data request</a></Link>
+      <h1>Nope.</h1>
+      <h4>Something went wrong you should prolly hit back or go <Link href='/' prefetch><a>Home</a></Link></h4>
       </Column>
     </Row>
   </PageTemplate>
