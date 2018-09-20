@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx'
-import {getCookieValue} from './lib/utils/auth'
+import {getCookieValue} from './lib/utils/cookie'
 
 let store = null
 
@@ -19,7 +19,7 @@ class Store {
     setUser(json) {
       this.user = json.user
       this.loggedIn = 'true'
-      this.token = json.token
+      this.token = json.bearer
     }
     setToken(newToken) {
       this.token = newToken
