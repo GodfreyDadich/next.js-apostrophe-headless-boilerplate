@@ -12,7 +12,7 @@ let staticStore = {}
 class MyApp extends App {
   static async getInitialProps ({ Component, ctx }) {
     const env = process.browser ? 'client' : 'server'
-    console.log(`Executing MyApp getInitialProps (${env} side)`, { staticStore })
+    // console.log(`Executing MyApp getInitialProps (${env} side)`, { staticStore })
 
     let pageProps = {}
 
@@ -27,14 +27,9 @@ class MyApp extends App {
       const response = await fetch(toFetch)
       const data = await response.json()
       staticStore = Object.assign(staticStore, {navData: data._children})
-    } else {
-      console.log(`nav data found: ${staticStore.navData}`)
-    }
+    } 
 
     return { pageProps, staticStore }
-  }
-  componentDidMount() {
-    console.log('test')
   }
   render () {
     const {Component, pageProps, staticStore, mobxStore} = this.props

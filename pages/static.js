@@ -1,14 +1,12 @@
 import Link from 'next/link'
-import PageTemplate from '../lib/components/PageTemplate'
+import pageTemplate from '../lib/hoc/default'
 import {Row, Column} from '../lib/components/Grid'
 
 const Static = () =>
-  <PageTemplate classNames='home'>
-    <Row>
-      <Column columns='4' skip='4'>
-        <h1>Home Page</h1>
-      </Column>
-    </Row>
-  </PageTemplate>
+  <Row>
+    <Column columns='4' skip='4'>
+      <h1>Home Page</h1>
+    </Column>
+  </Row>
 
-export default Static
+export default pageTemplate(Static)

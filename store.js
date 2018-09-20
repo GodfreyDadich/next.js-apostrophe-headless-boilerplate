@@ -8,6 +8,7 @@ class Store {
   @observable token = ''
   @observable user = {}
   @observable loggedIn = 'false'
+  @observable initialized = false
 
   @action.bound
     resetUser() {
@@ -15,8 +16,10 @@ class Store {
       this.loggedIn = 'false'
       this.token = ''
     }
-    setUser(newUser) {
-      this.user = newUser
+    setUser(json) {
+      this.user = json.user
+      this.loggedIn = 'true'
+      this.token = json.token
     }
     setToken(newToken) {
       this.token = newToken
@@ -25,18 +28,18 @@ class Store {
 
 
 export function initializeStore (isServer, initialState) {
-  if (initialState && initialState.user) {
-    store = new Store()
-    store.loggedIn = initialState.loggedIn
-    store.user = initialState.user
-    store.token = initialState.token
-  } else {
-    store = new Store() 
-    store.loggedIn = getCookieValue('loggedIn')
-    if (store.loggedIn === 'true') {    
+  store = new Store()
+  if(!store.initialized){
+    if (initialState && initialState.user) {
+      store.loggedIn = initialState.loggedIn
+      store.user = initialState.user
+      store.token = initialState.token
+    } else {
+      store.loggedIn = getCookieValue('loggedIn')
       store.user = getDecodedCookieValue('user')
       store.token = getDecodedCookieValue('token')
-    }    
+    }
+    store.initialized = true
   }
 
   return store  

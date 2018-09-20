@@ -27,6 +27,9 @@
     },
     "plugins": [
       "transform-decorators-legacy",
-      "transform-class-properties"
+      "transform-class-properties",
+      ["babel-plugin-dotenv", {
+        "replacedModuleName": "babel-dotenv"
+      }]
     ]
 }

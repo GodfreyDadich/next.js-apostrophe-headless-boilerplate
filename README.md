@@ -59,7 +59,7 @@ function buildRequestVars (paramString) {
 }
 ```
 
-`API_DOMAIN` is set in the `utils/constants.js` and is to be the domain at which you have deployed your Apostrophe-Headless instance. The `urlbase` variable adds the rest of the base paths currently used by a standard install of Apostrophe-Headless. The `path` variable is used as the item type. More documentation on how 
+`API_DOMAIN` is set in the `.env` and is to be the domain at which you have deployed your Apostrophe-Headless instance. The `urlbase` variable adds the rest of the base paths currently used by a standard install of Apostrophe-Headless. The `path` variable is used as the item type. More documentation on how 
 Apostrophe-Headless handles requests can be found [here](https://github.com/apostrophecms/apostrophe-headless)
 
 I do have a branch of Apostrophe-Headless that will accept `slug` as a query parameter when trying to requst a single page. I'm not sure why it was excluded from the original codebase ( I'm sure there were reasons ) or how they (Apostrophe peeps) will feel about it, but I have a fork [here](https://github.com/blaineo/apostrophe-headless) that I am maintaining as best I can. The main difference can be found on lines [96](https://github.com/blaineo/apostrophe-headless/blob/master/lib/modules/apostrophe-pages-headless/index.js#L96) and [125](https://github.com/blaineo/apostrophe-headless/blob/master/lib/modules/apostrophe-pages-headless/index.js#L125) of the `apostrophe-pages-headless` module.
@@ -67,7 +67,4 @@ I do have a branch of Apostrophe-Headless that will accept `slug` as a query par
 
 ### Coming soon
 - Abstracted version of the Apostrophe CMS deployment ( utilizing Apostrophe Headless ) used for this project
-- PUT and AUTH requests handlers that further interact with Apostrophe Headless
-- State managment with MOBX
-- Common data request. I will be implementing an initial request on the application intended to get data for a content controlled navigation ( header and footer data ). The request will happen only once per application load.
 - Abstract hosting platform away from just Google Cloud

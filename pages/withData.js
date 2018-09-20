@@ -1,10 +1,11 @@
 import fetch from 'isomorphic-fetch'
 import Head from 'next/head'
 import { getAPIUrl } from '../lib/utils/dataHelpers'
-import PageTemplate from '../lib/components/PageTemplate'
+import {Row, Column} from '../lib/components/Grid'
+import pageTemplate from '../lib/hoc/default'
 
 const WithData = ({ data }) =>
-  <PageTemplate>
+  <Row>
     <Head>
       {/*
       over ride head data here -- like the title tag below
@@ -16,10 +17,12 @@ const WithData = ({ data }) =>
     
       //styles go here
     `}</style>
-    <h1>{data.title}</h1>
-  </PageTemplate>
+    <Column columns='4' skip='4'>
+      <h1>{data.title}</h1>
+    </Column>
+  </Row>
 
-WithData.getInitialProps = async ({res, query}) => {
+WithData.getInitialProps = async ({query}) => {
   const toFetch = getAPIUrl('apostrophe-pages', `slug=/${query.slug}`)
   const response = await fetch(toFetch)
   const data = await response.json()
@@ -32,4 +35,4 @@ WithData.getInitialProps = async ({res, query}) => {
   }
 }
 
-export default WithData
+export default pageTemplate(WithData)
