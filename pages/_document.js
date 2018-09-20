@@ -1,8 +1,5 @@
 import Document, { Main, NextScript } from 'next/document'
 import flush from 'styled-jsx/server'
-import htmlescape from 'htmlescape'
-const { STAGE, GOOGLE_CLOUD_PROJECT, API_DOMAIN } = process.env
-const env = { STAGE, GOOGLE_CLOUD_PROJECT, API_DOMAIN }
 
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
@@ -28,7 +25,6 @@ export default class MyDocument extends Document {
         </head>
         <body>
           <Main />
-          <script dangerouslySetInnerHTML={{ __html: '__ENV__ = ' + htmlescape(env) }} />
           <NextScript />
         </body>
       </html>

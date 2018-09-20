@@ -66,13 +66,13 @@ app.prepare().then(() => {
   })
 })
 
-function handleAPIProxy (req, res, apiPath) {
-  const navDataAPI = `${process.env.API_DOMAIN}${apiPath}&apiKey=${process.env.API_KEY}`
-  fetch(navDataAPI) // need to add error handling
-    .then(response => response.json())
-    .then(json => {
-      res.setHeader('Content-Type', 'application/json')
-      res.send(json)
-    })
+async function handleAPIProxy (req, res, apiPath) {
+  const {API_DOMAIN, API_KEY} = process.env
+  const navDataAPI = `${API_DOMAIN}${apiPath}&apiKey=${API_KEY}`
+  const response = await fetch(navDataAPI) // need to add error handling
+  const data = await response.json()
+  
+  res.setHeader('Content-Type', 'application/json')
+  res.send(data)
 }
 

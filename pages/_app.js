@@ -3,9 +3,9 @@ import React from 'react'
 import withMobxStore from '../lib/with-mobx-store'
 import { Provider } from 'mobx-react'
 import fetch from 'isomorphic-fetch'
-import env from '../lib/utils/env'
+import {APP_DOMAIN, APP_DOMAIN_DEV} from 'babel-dotenv'
 
-const { APP_DOMAIN, APP_DOMAIN_DEV, NODE_ENV } = env
+const {NODE_ENV} = process.env
 const requestDomain = (NODE_ENV === 'production') ? APP_DOMAIN : APP_DOMAIN_DEV
 let staticStore = {}
 

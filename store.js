@@ -1,5 +1,5 @@
 import { observable, action } from 'mobx'
-import {getCookieValue, getDecodedCookieValue} from './lib/utils/auth'
+import {getCookieValue} from './lib/utils/auth'
 
 let store = null
 
@@ -27,7 +27,7 @@ class Store {
 }
 
 
-export function initializeStore (isServer, initialState) {
+export function initializeStore (initialState) {
   store = new Store()
   if(!store.initialized){
     if (initialState && initialState.user) {
@@ -35,9 +35,9 @@ export function initializeStore (isServer, initialState) {
       store.user = initialState.user
       store.token = initialState.token
     } else {
-      store.loggedIn = getCookieValue('loggedIn')
-      store.user = getDecodedCookieValue('user')
-      store.token = getDecodedCookieValue('token')
+      store.loggedIn = getCookieValue('loggedIn') || 'false'
+      store.user = getCookieValue('user', true) || {}
+      store.token = getCookieValue('token', true) || ''
     }
     store.initialized = true
   }
