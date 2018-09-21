@@ -18,9 +18,9 @@ export default class MyDocument extends Document {
           <meta name='description' content='Default Page Description' />
           {/* add external styles,fonts, and other header-loaded items here
           <link rel='shortcut icon' type='image/x-icon' href='/static/assets/favicon.ico' />
-          <link rel='apple-touch-icon' href='https://d11b794nw2x0wi.cloudfront.net/img/apple-touch-icon.png' />
-          <link rel='preload' href='https://d11b794nw2x0wi.cloudfront.net/css/fonts.css' as='style' />
-          <link rel='stylesheet' href='https://d11b794nw2x0wi.cloudfront.net/css/fonts.css' /> */}
+          <link rel='apple-touch-icon' href='https://yourinstance.cloudfront.net/img/apple-touch-icon.png' />
+          <link rel='preload' href='https://yourinstance.cloudfront.net/css/fonts.css' as='style' />
+          <link rel='stylesheet' href='https://yourinstance.cloudfront.net/css/fonts.css' /> */}
           {this.props.styles}
         </head>
         <body>
