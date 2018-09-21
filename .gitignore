@@ -4,5 +4,8 @@ node_modules
 .elasticbeanstalk/*
 .vscode/*
 out/*
+static/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+.env
+

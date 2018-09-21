@@ -9,6 +9,7 @@ const mobxReact = require('mobx-react')
 const handle = app.getRequestHandler()
 const compression = require('compression')
 const fetch = require('isomorphic-fetch')
+const bodyParser = require('body-parser')
 
 const rootStaticFiles = [
   '/robots.txt',
@@ -23,18 +24,28 @@ app.prepare().then(() => {
   if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
     server.use(compression())
   }
+  server.use(bodyParser.json())
+  server.use(bodyParser.urlencoded({ extended: true }))
 
   /* add microservice url mappings here */
   const navAPIPath = `api/v1/apostrophe-pages?all=true&hideOrphans=true`
   server.get('/api/micro/nav', (req, res) => handleAPIProxy(req, res, navAPIPath)) /* Returns a JSON page tree of all pages that aren't "hidden from navigation" */
 
   /* add url Front-End mappings here */
-  server.get('/with-data/:slug', (req, res) => {
-    return app.render(req, res, '/sample-with-data', Object.assign({slug: req.params.slug}, req.query))
+  server.get('/login', (req, res) => {
+    return app.render(req, res, '/auth')
+  })
+
+  server.get('/:path/:slug', (req, res) => {
+    return app.render(req, res, '/withData', Object.assign({slug: `${req.params.path}/${req.params.slug}`}, req.query))
+  })
+
+  server.get('/:slug', (req, res) => {
+    return app.render(req, res, '/withData', Object.assign({slug: req.params.slug}, req.query))
   })
 
   server.get('/', (req, res) => {
-    return app.render(req, res, '/sample-page')
+    return app.render(req, res, '/static')
   })
 
   server.get('/*', (req, res) => {
@@ -55,12 +66,13 @@ app.prepare().then(() => {
   })
 })
 
-function handleAPIProxy (req, res, apiPath) {
-  const navDataAPI = `${process.env.API_DOMAIN}${apiPath}&apiKey=${process.env.API_KEY}`
-  fetch(navDataAPI)
-    .then(response => response.json())
-    .then(json => {
-      res.setHeader('Content-Type', 'application/json')
-      res.send(json)
-    })
+async function handleAPIProxy (req, res, apiPath) {
+  const {API_DOMAIN, API_KEY} = process.env
+  const navDataAPI = `${API_DOMAIN}${apiPath}&apiKey=${API_KEY}`
+  const response = await fetch(navDataAPI) // need to add error handling
+  const data = await response.json()
+  
+  res.setHeader('Content-Type', 'application/json')
+  res.send(data)
 }
+
