@@ -1,5 +1,6 @@
 const express = require('express')
 const next = require('next')
+require('dotenv').config()
 const port = parseInt(process.env.PORT, 10) || 3001
 const dev = process.env.NODE_ENV !== 'production' && process.env.NODE_ENV !== 'staging'
 const { parse } = require('url')
@@ -68,6 +69,7 @@ app.prepare().then(() => {
 
 async function handleAPIProxy (req, res, apiPath) {
   const {API_DOMAIN, API_KEY} = process.env
+  console.log('~~~~~~~~~~~~~~~~~~~~~' + process.env)
   const navDataAPI = `${API_DOMAIN}${apiPath}&apiKey=${API_KEY}`
   const response = await fetch(navDataAPI) // need to add error handling
   const data = await response.json()

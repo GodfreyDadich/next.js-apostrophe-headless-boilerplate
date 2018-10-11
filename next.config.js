@@ -4,7 +4,7 @@ module.exports = {
   webpack: config => {
     config.plugins.push(
       new webpack.EnvironmentPlugin({
-        API_DOMAIN: 'http://localhost:3000/', 
+        API_DOMAIN: process.env.API_DOMAIN,
         JWT_SECRET: 'XXXXX'
       })
     )
