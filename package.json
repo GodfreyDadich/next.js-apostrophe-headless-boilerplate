@@ -17,7 +17,7 @@
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
     "dotenv": "^5.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "htmlescape": "^1.1.1",
     "js-cookie": "^2.2.0",
     "jwt-simple": "^0.5.6",
